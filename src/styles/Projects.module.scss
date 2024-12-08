@@ -1,0 +1,37 @@
+@import './variables';
+
+.projects {
+  @include flex-center;
+  flex-direction: column;
+  padding: $spacing-xlarge 0;
+  background-image: url('../assets/img/bcg.png');
+  background-size: cover;
+  background-position: center;
+
+  h2 {
+    font-size: $font-size-xlarge;
+    color: $white;
+    margin-bottom: $spacing-large;
+  }
+
+  .projectsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $spacing-large;
+    padding: $spacing-medium;
+    max-width: 1200px;
+    width: 100%;
+  }
+
+  .projectCard {
+    background-color: $white;
+    padding: $spacing-large;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    h3 {
+      color: $primary-color;
+      margin-bottom: $spacing-medium;
+    }
+  }
+}

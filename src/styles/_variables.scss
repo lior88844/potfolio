@@ -1,0 +1,66 @@
+// Colors
+$primary-color: #ffbe0c;
+$primary-color-hover: #ff9e00;
+$primary-color-2: #fb5607;
+$primary-color-3: #8338ec;
+$primary-color-4: #ff006e;
+$primary-color-5: #3986ff;
+$secondary-color: rgb(255, 255, 255);
+$background-color: #fff;
+$text-color: #333;
+$white: #fff;
+
+// Light theme colors
+$primary-color-light: #333333;
+$secondary-color-light: #666666;
+$text-color-light: #444444;
+$background-color-light: #ffffff;
+
+// Dark theme colors
+$primary-color-dark: #ffffff;
+$secondary-color-dark: #cccccc;
+$text-color-dark: #f0f0f0;
+$background-color-dark: #1a1a1a;
+
+// Typography
+$font-family: 'Arial', sans-serif;
+$font-size-base: 16px;
+$font-size-large: 1.5rem;
+$font-size-xlarge: 4rem;
+$font-size-xxlarge: 6rem;
+$font-size-medium: 1.2rem;
+$font-weight-bold: 700;
+$line-height: 1.6;
+
+// Spacing
+$spacing-small: 0.5rem;
+$spacing-medium: 1rem;
+$spacing-large: 2rem;
+$spacing-xlarge: 5rem;
+
+// Breakpoints
+$breakpoint-mobile: 768px;
+$breakpoint-tablet: 1024px;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin responsive($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+// Transitions
+$transition-speed: 0.3s;
+$transition-ease: ease;

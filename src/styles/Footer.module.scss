@@ -1,0 +1,28 @@
+@import './variables';
+
+.footer {
+  background-color: $primary-color;
+  color: $white;
+  padding: $spacing-large;
+  text-align: center;
+
+  p {
+    margin-bottom: $spacing-medium;
+  }
+
+  .social {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-medium;
+
+    a {
+      color: $white;
+      font-size: $font-size-large;
+      transition: color $transition-speed $transition-ease;
+
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+  }
+}

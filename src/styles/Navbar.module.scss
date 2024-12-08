@@ -1,0 +1,52 @@
+// Variables
+$primary-color: #ffffff;
+$hover-color: #ffbe0c;
+$breakpoint-mobile: 768px;
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  height: 100%;
+}
+.logoImg {
+  height: 30%;
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  align-items: center;
+  .navLink {
+    background: transparent;
+    border: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+      text-decoration: none;
+      color: $primary-color;
+      font-weight: 500;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $hover-color;
+        cursor: pointer;
+      }
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+      display: none;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,62 @@
+@import './variables';
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  min-height: 100vh;
+  transition: all 0.3s ease;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  &.light {
+    background-image: url('../assets/img/bcg-day.png');
+    color: $text-color-light;
+
+    :global {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: $primary-color-light;
+      }
+
+      p {
+        color: $text-color-light;
+      }
+    }
+  }
+
+  &.dark {
+    background-image: url('../assets/img/bcg-night.png');
+    color: $text-color-dark;
+
+    :global {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: $primary-color-dark;
+      }
+
+      p {
+        color: $text-color-dark;
+      }
+    }
+  }
+}
+
+.main {
+  min-height: calc(100vh - 160px); // Adjust based on your header/footer height
+  padding: $spacing-medium;
+  transition: all 0.3s ease;
+}
