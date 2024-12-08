@@ -20,11 +20,11 @@
 
     :global {
       h1,
-      h2,
       h3,
       h4,
       h5,
-      h6 {
+      h6,
+      p {
         color: $primary-color-light;
       }
 
@@ -40,7 +40,6 @@
 
     :global {
       h1,
-      h2,
       h3,
       h4,
       h5,
@@ -55,8 +54,20 @@
   }
 }
 
+.starsBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
 .main {
-  min-height: calc(100vh - 160px); // Adjust based on your header/footer height
+  position: relative;
+  z-index: 1;
+  min-height: calc(100vh - 160px);
   padding: $spacing-medium;
   transition: all 0.3s ease;
 }

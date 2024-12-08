@@ -3,21 +3,108 @@
 .about {
   @include flex-center;
   min-height: 100vh;
+  height: 600px;
   padding: $spacing-xlarge $spacing-large;
+  @include responsive($breakpoint-mobile) {
+    padding: 0;
+    height: fit-content;
+  }
 }
 
 .card {
   display: flex;
   max-width: 1200px;
   width: 90%;
-  background-color: $white;
+  height: fit-content;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  transition: all 0.3s ease;
+  background-color: $white;
+
+  &.darkMode {
+    background-color: #1a1f3ca1;
+
+    .content {
+      h3 {
+        color: $white;
+      }
+      p {
+        color: $white;
+      }
+    }
+
+    .tabPanel {
+      h3 {
+        color: $white;
+      }
+      p {
+        color: rgba($white, 0.9);
+      }
+    }
+
+    .tabsNav {
+      ul {
+        border-bottom: 1px solid rgba($white, 0.2);
+      }
+      li {
+        color: rgba($white, 0.7);
+        &.selected {
+          color: $primary-color;
+        }
+      }
+    }
+
+    .emailLink {
+      color: $primary-color;
+      &:hover {
+        background-color: rgba($primary-color, 0.2);
+      }
+    }
+  }
+
+  &.lightMode {
+    background-color: #ffffff52;
+
+    .content {
+      h2 {
+        color: $primary-color;
+      }
+      h3 {
+        color: $primary-color-2;
+      }
+      p {
+        color: $text-color;
+      }
+    }
+
+    .tabPanel {
+      h3 {
+        color: $primary-color-2;
+      }
+      p {
+        color: $text-color;
+      }
+    }
+  }
 
   @include responsive($breakpoint-mobile) {
     flex-direction: column;
-    width: 95%;
+    width: 100%;
+    height: auto;
+    min-height: 90vh;
+  }
+}
+
+:global(.light) {
+  .card {
+    background-color: $white;
+  }
+}
+
+:global(.dark) {
+  .card {
+    background-color: #1a1f3c;
   }
 }
 
@@ -52,7 +139,7 @@
   }
 
   h3 {
-    font-size: $font-size-large;
+    font-size: $font-size-medium;
     color: $primary-color-2;
     margin-bottom: $spacing-large;
     font-weight: 500;
@@ -70,7 +157,10 @@
   }
 
   @include responsive($breakpoint-mobile) {
-    padding: $spacing-large;
+    padding: $spacing-medium;
+    flex: 1;
+    height: auto;
+    min-height: 60vh;
   }
 }
 
@@ -95,5 +185,98 @@
 
   .icon {
     font-size: 1.2em;
+  }
+}
+
+.tabsNav {
+  margin: 2rem 0;
+
+  ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid rgba($primary-color, 0.2);
+  }
+
+  li {
+    position: relative;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    color: $text-color;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+
+    &.selected {
+      opacity: 1;
+      color: $primary-color;
+    }
+
+    .tabContent {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
+
+  .underline {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: $primary-color;
+  }
+}
+
+.tabPanel {
+  min-height: 200px;
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: $primary-color rgba($primary-color, 0.1);
+
+  @include responsive($breakpoint-mobile) {
+    min-height: 150px;
+    max-height: 50vh;
+    padding: 0 1rem 1rem 1rem;
+    margin-bottom: $spacing-large;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba($primary-color, 0.1);
+    border-radius: 10px;
+    margin: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $primary-color;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background: darken($primary-color, 10%);
+    }
+  }
+
+  h3 {
+    margin-bottom: $spacing-medium;
+    color: $primary-color-2;
+  }
+
+  p {
+    margin-bottom: $spacing-medium;
+    line-height: 1.6;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }

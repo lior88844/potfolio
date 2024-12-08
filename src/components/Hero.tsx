@@ -1,37 +1,18 @@
-import { FC, Suspense } from 'react'
+import { FC } from 'react'
 import { TypeAnimation } from 'react-type-animation'
-import { motion } from 'motion/react'
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Stars } from '@react-three/drei'
 import styles from '../styles/Hero.module.scss'
-import { useTheme } from '../context/ThemeContext'
-
-const AnimatedBackground: FC = () => {
-  return (
-    <Canvas>
-      <OrbitControls enableZoom={false} />
-      <Stars
-        radius={100}
-        depth={50}
-        count={5000}
-        factor={4}
-        saturation={0}
-        fade
-        speed={1}
-      />
-    </Canvas>
-  )
-}
+import { motion } from 'motion/react'
 
 const Hero: FC = () => {
-  const { isDarkMode } = useTheme()
+  const handleEmailClick = () => {
+    window.open(
+      'mailto:dearliordoron@gmail.com?subject=Help%20Me%2C%20Obi-Wan%20Lior%2C%20You%E2%80%99re%20My%20Only%20Hope%21',
+      '_blank'
+    )
+  }
+
   return (
     <section id="home" className={styles.hero}>
-      <div className={styles.background}>
-        <Suspense fallback={null}>
-          {isDarkMode && <AnimatedBackground />}
-        </Suspense>
-      </div>
       <div className={styles.content}>
         <TypeAnimation
           sequence={['Engineer', 1000, 'Designer', 1000, 'Creator', 1000]}
@@ -48,6 +29,15 @@ const Hero: FC = () => {
         >
           Your Vision, My Expertise.
         </motion.div>
+        <motion.button
+          onClick={handleEmailClick}
+          className={styles.sendMessageButton}
+          whileHover={{ scale: 1.4 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ duration: 0.2 }}
+        >
+          Send Message
+        </motion.button>
       </div>
     </section>
   )
