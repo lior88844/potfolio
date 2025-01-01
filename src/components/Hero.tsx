@@ -1,7 +1,6 @@
 import { FC } from 'react'
-import { TypeAnimation } from 'react-type-animation'
-import styles from '../styles/Hero.module.scss'
 import { motion } from 'motion/react'
+import styles from '../styles/Hero.module.scss'
 
 const Hero: FC = () => {
   const handleEmailClick = () => {
@@ -14,17 +13,17 @@ const Hero: FC = () => {
   return (
     <section id="home" className={styles.hero}>
       <div className={styles.content}>
-        <TypeAnimation
-          sequence={['Engineer', 1000, 'Designer', 1000, 'Creator', 1000]}
-          wrapper="h1"
-          speed={50}
-          style={{ display: 'inline-block', marginBottom: '1rem' }}
-          repeat={Infinity}
-        />
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          Engineer
+        </motion.h1>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 3 }}
+          transition={{ delay: 0.5, duration: 1 }}
           className={styles.tagline}
         >
           Your Vision, My Expertise.
@@ -32,7 +31,7 @@ const Hero: FC = () => {
         <motion.button
           onClick={handleEmailClick}
           className={styles.sendMessageButton}
-          whileHover={{ scale: 1.4 }}
+          whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           transition={{ duration: 0.2 }}
         >

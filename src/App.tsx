@@ -14,6 +14,7 @@ import PageTransition from './components/PageTransition'
 import { useTheme } from './context/ThemeContext'
 import styles from './styles/App.module.scss'
 import LightCursor from './components/LightCursor'
+import AnimatedClouds from './components/AnimatedClouds'
 
 const AnimatedBackground: FC = () => {
   return (
@@ -35,16 +36,20 @@ const AnimatedBackground: FC = () => {
 const AppContent: FC = () => {
   const location = useLocation()
   const { isDarkMode } = useTheme()
+  const isHomePage = location.pathname === '/' || location.pathname === '/home'
 
   return (
     <div className={`${styles.app} ${isDarkMode ? styles.dark : styles.light}`}>
-      {isDarkMode && (
+      {isDarkMode ? (
         <div className={styles.starsBackground}>
           <Suspense fallback={null}>
             <AnimatedBackground />
           </Suspense>
         </div>
+      ) : (
+        <AnimatedClouds />
       )}
+      {isHomePage && <div className={styles.deskOverlay} />}
       <LightCursor />
       <NavBar />
       <main className={styles.main}>
