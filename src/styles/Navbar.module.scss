@@ -9,6 +9,8 @@ $breakpoint-mobile: 768px;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
+  z-index: 1;
+  position: relative;
 }
 
 .logo {

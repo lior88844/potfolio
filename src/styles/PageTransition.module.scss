@@ -1,0 +1,24 @@
+@import './variables';
+
+.pageTransition {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: var(--desk-image);
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+    pointer-events: none;
+    transition: transform 0.8s cubic-bezier(0.43, 0.13, 0.23, 0.96);
+  }
+}

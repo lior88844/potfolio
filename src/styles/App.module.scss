@@ -12,11 +12,6 @@
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
 
   &.light {
     background-image: url('../assets/img/bcg-day.png');
@@ -73,9 +68,18 @@
     height: 100vh;
     z-index: 0;
     pointer-events: none;
-    background-position: left center;
+    background-position: bottom center;
     background-repeat: no-repeat;
     background-size: cover;
+    will-change: transform;
+
+    .light & {
+      background-image: url('../assets/img/desk.png');
+    }
+
+    .dark & {
+      background-image: url('../assets/img/desk-night.png');
+    }
 
     @media (max-width: $breakpoint-mobile) {
       background-position: 30% center;

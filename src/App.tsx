@@ -1,6 +1,6 @@
 import { FC, Suspense } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
-import { AnimatePresence } from 'motion/react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Stars } from '@react-three/drei'
 import { ThemeProvider } from './context/ThemeContext'
@@ -49,7 +49,38 @@ const AppContent: FC = () => {
       ) : (
         <AnimatedClouds />
       )}
-      {isHomePage && <div className={styles.deskOverlay} />}
+      <AnimatePresence mode="wait">
+        {isHomePage && (
+          <motion.div
+            className={styles.deskOverlay}
+            initial={{
+              y: '100%',
+              opacity: 1,
+              scale: 1.2,
+              transformOrigin: 'top',
+            }}
+            animate={{
+              y: 0,
+              opacity: 1,
+              scale: 1,
+            }}
+            exit={{
+              y: '100%',
+              opacity: 1,
+              scale: 1.2,
+              transformOrigin: 'top',
+            }}
+            transition={{
+              duration: 1.5,
+              ease: [0.43, 0.13, 0.23, 0.96],
+              scale: {
+                duration: 1.5,
+                ease: [0.43, 0.13, 0.23, 0.96],
+              },
+            }}
+          />
+        )}
+      </AnimatePresence>
       <LightCursor />
       <NavBar />
       <main className={styles.main}>
