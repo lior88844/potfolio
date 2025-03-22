@@ -1,9 +1,9 @@
 import { FC } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import styles from '../styles/Navbar.module.scss'
 import logoDay from '../assets/img/logo.png'
 import logoNight from '../assets/img/logo-night.png'
-import { motion } from 'motion/react'
+import { motion } from 'framer-motion'
 import { useTheme } from '../context/ThemeContext'
 import { FaSun, FaMoon } from 'react-icons/fa'
 
@@ -50,7 +50,10 @@ const Navbar: FC = () => {
               className={styles.navLink}
               onClick={() => navigate('/about')}
             >
-              <h1>About</h1>
+              <div className={styles.navLinkContent}>
+                <motion.h1>The Summit</motion.h1>
+                <span className={styles.subLabel}>my path</span>
+              </div>
             </motion.button>
           </li>
           <li>
@@ -60,7 +63,10 @@ const Navbar: FC = () => {
               className={styles.navLink}
               onClick={() => navigate('/projects')}
             >
-              <h1>Projects</h1>
+              <div className={styles.navLinkContent}>
+                <motion.h1>The Meadow</motion.h1>
+                <span className={styles.subLabel}>my projects</span>
+              </div>
             </motion.button>
           </li>
           <li>
@@ -70,7 +76,10 @@ const Navbar: FC = () => {
               className={styles.navLink}
               onClick={() => navigate('/contact')}
             >
-              <h1>Contact</h1>
+              <div className={styles.navLinkContent}>
+                <motion.h1>The Swamp</motion.h1>
+                <span className={styles.subLabel}>contact me</span>
+              </div>
             </motion.button>
           </li>
         </ul>

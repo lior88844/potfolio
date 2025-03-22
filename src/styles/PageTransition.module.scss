@@ -1,24 +1,67 @@
 @import './variables';
 
 .pageTransition {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   min-height: 100vh;
-  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  transform-origin: center;
+  will-change: transform, opacity;
+  perspective: 1000px;
+  backface-visibility: hidden;
   z-index: 1;
+  overflow: hidden;
 
   &::before {
     content: '';
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: var(--desk-image);
-    background-position: bottom center;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     z-index: -1;
     pointer-events: none;
+    transform-origin: center;
     transition: transform 0.8s cubic-bezier(0.43, 0.13, 0.23, 0.96);
+    will-change: transform;
+  }
+}
+
+.homePage {
+  &::before {
+    background-image: var(--desk-image);
+  }
+}
+
+.aboutPage {
+  &::before {
+    background-image: url('../assets/img/summit.png');
+    opacity: 0.8; // Slightly reduce opacity to ensure content readability
+  }
+}
+
+.pageContent {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  transform-origin: center;
+  padding: 0;
+}
+
+// Add a subtle zoom effect to the background during page transitions
+:global(.exit-active) {
+  .pageTransition::before {
+    transform: scale(1.5);
   }
 }

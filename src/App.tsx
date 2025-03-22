@@ -54,29 +54,21 @@ const AppContent: FC = () => {
           <motion.div
             className={styles.deskOverlay}
             initial={{
-              y: '100%',
-              opacity: 1,
-              scale: 1.2,
-              transformOrigin: 'top',
+              opacity: 0,
+              scale: 0.6,
+              transformOrigin: 'center',
             }}
             animate={{
-              y: 0,
               opacity: 1,
               scale: 1,
             }}
             exit={{
-              y: '100%',
-              opacity: 1,
-              scale: 1.2,
-              transformOrigin: 'top',
+              opacity: 0,
+              scale: 2,
             }}
             transition={{
-              duration: 1.5,
+              duration: 0.8,
               ease: [0.43, 0.13, 0.23, 0.96],
-              scale: {
-                duration: 1.5,
-                ease: [0.43, 0.13, 0.23, 0.96],
-              },
             }}
           />
         )}

@@ -54,7 +54,7 @@ const Hero: FC = () => {
             isDarkMode ? styles.darkShine : styles.lightShine
           }`}
         >
-          Your Vision, My Expertise.
+         Lior Doron
         </motion.div>
         <motion.button
           onClick={handleEmailClick}

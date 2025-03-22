@@ -1,0 +1,117 @@
+@import '../styles/_variables.scss';
+
+.mapContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.trails {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.dottedPath {
+  stroke: $primary-color;
+  stroke-width: 3;
+  opacity: 0.8;
+  animation: drawPath 3s ease-in-out infinite;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 3px rgba($primary-color, 0.4));
+}
+
+.navigationPoint {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  pointer-events: all;
+  transition: all 0.3s ease;
+
+  &:hover {
+    .point {
+      box-shadow: 0 0 20px rgba($primary-color, 0.8);
+      transform: scale(1.2);
+    }
+  }
+
+  .point {
+    width: 20px;
+    height: 20px;
+    background-color: $primary-color;
+    border-radius: 50%;
+    margin-bottom: 8px;
+    box-shadow: 0 0 15px rgba($primary-color, 0.6);
+    transition: all 0.3s ease;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: $text-color;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  p {
+    font-size: 0.9rem;
+    margin: 4px 0 0;
+    color: $secondary-color-light;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.summit {
+  top: 15%;
+  right: 15%;
+}
+
+.meadow {
+  bottom: 20%;
+  left: 15%;
+}
+
+.swamp {
+  bottom: 15%;
+  right: 15%;
+}
+
+@keyframes drawPath {
+  0% {
+    stroke-dashoffset: 500;
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.4;
+  }
+}
+
+// Media queries for responsiveness
+@media (max-width: 768px) {
+  .navigationPoint {
+    h2 {
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-size: 0.8rem;
+    }
+  }
+}

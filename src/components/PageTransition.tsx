@@ -10,19 +10,46 @@ interface PageTransitionProps {
 const PageTransition: FC<PageTransitionProps> = ({ children }) => {
   const location = useLocation()
   const isHomePage = location.pathname === '/' || location.pathname === '/home'
+  const isAboutPage = location.pathname === '/about'
+
+  const getPageClass = () => {
+    if (isHomePage) return styles.homePage
+    if (isAboutPage) return styles.aboutPage
+    return ''
+  }
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 0 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: isHomePage ? 0 : 100 }}
+      className={`${styles.pageTransition} ${getPageClass()}`}
+      initial={{
+        opacity: 0,
+        scale: 0.6,
+      }}
+      animate={{
+        opacity: 1,
+        scale: 1,
+      }}
+      exit={{
+        opacity: 0,
+        scale: 2,
+      }}
       transition={{
         duration: 0.8,
-        ease: [0.43, 0.13, 0.23, 0.96], // Smooth easing function
+        ease: [0.43, 0.13, 0.23, 0.96],
       }}
-      className={styles.pageTransition}
     >
-      {children}
+      <motion.div
+        className={styles.pageContent}
+        initial={{ scale: 0.6 }}
+        animate={{ scale: 1 }}
+        exit={{ scale: 2 }}
+        transition={{
+          duration: 0.8,
+          ease: [0.43, 0.13, 0.23, 0.96],
+        }}
+      >
+        {children}
+      </motion.div>
     </motion.div>
   )
 }
