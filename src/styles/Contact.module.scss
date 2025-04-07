@@ -6,26 +6,38 @@
   flex: 1;
   overflow: hidden;
   padding: $spacing-xlarge 0;
-  background-image: url('../assets/img/swamp.png');
-  background-size: cover;
-  background-position: center;
-  transition: opacity 0.3s ease;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  z-index: 1;
-  &.dark {
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/img/swamp.png');
+    background-size: cover;
+    background-position: center;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+  }
+
+  &.dark::before {
     background-image: url('../assets/img/swamp-night.png');
   }
 }
 
 .frogContainer {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  position: relative;
+  z-index: 2;
 }
+
 .frog {
   width: 200px;
   height: auto;
@@ -45,7 +57,7 @@
   align-items: flex-end;
   overflow: visible;
   background: none;
-  z-index: -1;
+  z-index: 0;
 }
 
 .rainbowText {
@@ -181,7 +193,6 @@
 }
 
 .rainbowContainer::before {
-  z-index: -1;
   content: '';
   position: absolute;
   bottom: 0;
@@ -191,9 +202,9 @@
   border-radius: 50% 50% 0 0;
   background: none;
   box-shadow: 0 0 0 20px rgba(231, 67, 25, 0.8),
-    /* e74319 - Red */ 0 0 0 40px rgba(244, 242, 25, 0.8),
-    /* f4f219 - Yellow */ 0 0 0 60px rgba(123, 198, 115, 0.8),
-    /* 7bc673 - Green */ 0 0 0 80px rgba(22, 157, 151, 0.8); /* 169d97 - Teal */
+    0 0 0 40px rgba(244, 242, 25, 0.8), 0 0 0 60px rgba(123, 198, 115, 0.8),
+    0 0 0 80px rgba(22, 157, 151, 0.8);
   animation: rainbow-appear 1.5s ease-out forwards;
   transform-origin: bottom center;
+  z-index: 0;
 }
