@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import styles from '../styles/Navbar.module.scss'
 import logoDay from '../assets/img/logo.png'
 import logoNight from '../assets/img/logo-night.png'

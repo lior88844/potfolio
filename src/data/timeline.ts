@@ -1,70 +1,48 @@
 import {
+  FaCode,
   FaGraduationCap,
   FaBriefcase,
-  FaUserTie,
-  FaCode,
-  FaChalkboardTeacher,
-  FaGlobe,
   FaLaptopCode,
-  FaLanguage,
+  FaUserGraduate,
 } from 'react-icons/fa'
 
 export const timelineData = {
-  "2014": [
+  2024: [
     {
-      "title": "Spike Missile Instructor - IDF",
-      "description": "Served as a spike missile instructor in the Israel Defense Forces, training soldiers in advanced missile systems and combat techniques.",
-      "icon": FaUserTie
-    }
+      title: 'Full Stack Developer',
+      description:
+        'Working on exciting web development projects and expanding my skills in modern technologies.',
+      icon: FaCode,
+    },
   ],
-  "2016": [
+  2023: [
     {
-      "title": "Israel Emissary",
-      "description": "Represented Israel as an emissary in the Washington DC-Baltimore area, fostering cultural exchange and community engagement programs.",
-      "icon": FaGlobe
-    }
+      title: 'Coding Academy Graduate',
+      description:
+        'Completed an intensive 3-month full-stack development bootcamp, mastering modern web technologies and best practices.',
+      icon: FaGraduationCap,
+    },
+    {
+      title: 'Statistics Tutor',
+      description:
+        'Helped university students understand complex statistical concepts and improve their academic performance.',
+      icon: FaLaptopCode,
+    },
   ],
-  "2020": [
+  2022: [
     {
-      "title": "BA in Psychology & SE Asia Studies",
-      "description": "Pursued dual studies in Psychology and Southeast Asian Studies at Tel-Hai College, focusing on cross-cultural psychology and Asian societies.",
-      "icon": FaGraduationCap
-    }
+      title: 'Psychology Student',
+      description:
+        'Studied psychology at university, developing a deep understanding of human behavior and cognitive processes.',
+      icon: FaGraduationCap,
+    },
   ],
-  "2021": [
+  2021: [
     {
-      "title": "Working while studying",
-      "description": "Combined roles as a statistics tutor and social media manager at Tel-Hai's Global Partnerships department, developing educational content.",
-      "icon": FaChalkboardTeacher
-    }
+      title: 'Military Service',
+      description:
+        'Served as a spike missile instructor in the Israel Defense Forces, training soldiers in advanced missile systems and combat techniques.',
+      icon: FaBriefcase,
+    },
   ],
-  "2022": [
-    {
-      "title": "Programming Journey Begins",
-      "description": "Completed comprehensive training in data analysis and programming, mastering Python, SQL, and Excel through she codes and Codecademy.",
-      "icon": FaCode
-    }
-  ],
- "2023-1": [
-    {
-      "title": "Taking programming seriously",
-      "description": "Enhanced technical skills through Coding Academy Israel's fullstack bootcamp, mastering React, MongoDB, and modern JavaScript.",
-      "icon": FaCode
-    }
-  ],
-  "2023-2": [
-    {
-      "title": "Career Transition to Tech",
-      "description": "Joined Movement Group as an Escalation Engineer, handling technical support and system optimization for the Plannie application.",
-      "icon": FaBriefcase
-    }
-  ],
- 
-  "2024": [
-    {
-      "title": "Tech & Language Development",
-      "description": "Advanced to Junior Full Stack Developer while pursuing intensive Mandarin studies at NTNU, combining technical and linguistic growth.",
-      "icon": FaLaptopCode
-    }
-  ]
-} 
+}

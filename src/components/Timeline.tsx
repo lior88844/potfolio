@@ -1,8 +1,9 @@
-import { FC, useRef, useEffect, useCallback } from 'react'
+import { FC, useRef, useEffect, useCallback, useState } from 'react'
 import { motion } from 'framer-motion'
 import { IconType } from 'react-icons'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import styles from '../styles/Timeline.module.scss'
+import { useTheme } from '../context/ThemeContext'
 
 interface TimelineItem {
   title: string
@@ -19,6 +20,9 @@ interface TimelineProps {
 }
 
 const Timeline: FC<TimelineProps> = ({ data }) => {
+  const [selectedYear, setSelectedYear] = useState<number>(2024)
+  const timelineRef = useRef<HTMLDivElement>(null)
+  const { isDarkMode } = useTheme()
   const years = Object.keys(data).sort((a, b) => parseInt(a) - parseInt(b))
   const containerRef = useRef<HTMLDivElement>(null)
   const autoScrollEnabled = useRef(true)
@@ -32,11 +36,13 @@ const Timeline: FC<TimelineProps> = ({ data }) => {
 
     const container = containerRef.current
     const scrollAmount = 300
-    const targetScroll = container.scrollLeft + (direction === 'left' ? -scrollAmount : scrollAmount)
+    const targetScroll =
+      container.scrollLeft +
+      (direction === 'left' ? -scrollAmount : scrollAmount)
 
     container.scrollTo({
       left: targetScroll,
-      behavior: 'smooth'
+      behavior: 'smooth',
     })
 
     autoScrollEnabled.current = false
@@ -50,7 +56,6 @@ const Timeline: FC<TimelineProps> = ({ data }) => {
     if (!container) return
 
     const timelineWidth = container.scrollWidth / 2
-    const viewportCenter = container.clientWidth / 2
     const currentScroll = container.scrollLeft
 
     // If we've scrolled past the center point of the second set
@@ -118,7 +123,7 @@ const Timeline: FC<TimelineProps> = ({ data }) => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!isDragging.current) return
       e.preventDefault()
-      
+
       const x = e.pageX - container.offsetLeft
       const walk = (x - startX.current) * 2
       container.scrollLeft = scrollLeft.current - walk
@@ -134,7 +139,7 @@ const Timeline: FC<TimelineProps> = ({ data }) => {
 
     const handleTouchMove = (e: TouchEvent) => {
       if (!isDragging.current) return
-      
+
       const x = e.touches[0].pageX - container.offsetLeft
       const walk = (x - startX.current) * 2
       container.scrollLeft = scrollLeft.current - walk
@@ -212,16 +217,20 @@ const Timeline: FC<TimelineProps> = ({ data }) => {
     ))
   }
 
+  const handleYearClick = (year: number) => {
+    setSelectedYear(year)
+  }
+
   return (
     <div className={styles.pageContainer}>
-      <button 
+      <button
         className={`${styles.navigationArrow} ${styles.left}`}
         onClick={() => scroll('left')}
         aria-label="Scroll left"
       >
         <FaChevronLeft />
       </button>
-      <button 
+      <button
         className={`${styles.navigationArrow} ${styles.right}`}
         onClick={() => scroll('right')}
         aria-label="Scroll right"
@@ -237,10 +246,11 @@ const Timeline: FC<TimelineProps> = ({ data }) => {
         transition={{ duration: 0.3 }}
       >
         {renderTimelineItems()}
-        {renderTimelineItems()} {/* Duplicate timeline items for infinite scroll */}
+        {renderTimelineItems()}{' '}
+        {/* Duplicate timeline items for infinite scroll */}
       </motion.div>
     </div>
   )
 }
 
-export default Timeline 
+export default Timeline
