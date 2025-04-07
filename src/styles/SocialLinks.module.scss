@@ -1,0 +1,43 @@
+.socialLinks {
+  position: absolute;
+  bottom: 98vh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2rem;
+  z-index: 100;
+  padding: 1.5rem 2.5rem;
+  border-radius: 50px;
+  pointer-events: all;
+}
+
+.socialLink {
+  transition: all 0.3s ease;
+  transform-origin: center;
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  color: white;
+  pointer-events: auto;
+  cursor: pointer;
+  position: relative;
+  z-index: 100;
+
+  svg {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    position: relative;
+    z-index: 100;
+  }
+
+  &:hover {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+
+    svg {
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+    }
+  }
+}

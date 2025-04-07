@@ -18,9 +18,17 @@ const CurvedText: FC = () => {
       <text
         fontSize="42"
         fill="white"
-        style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
+        style={{
+          textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+          dominantBaseline: 'middle',
+        }}
       >
-        <textPath href="#curve" startOffset="50%" textAnchor="middle">
+        <textPath
+          href="#curve"
+          startOffset="50%"
+          textAnchor="middle"
+          alignmentBaseline="middle"
+        >
           Let's Be Friends
         </textPath>
       </text>

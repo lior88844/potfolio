@@ -3,6 +3,7 @@ import styles from '../styles/Contact.module.scss'
 import { useTheme } from '../context/ThemeContext'
 import frogImage from '../assets/img/frog.gif'
 import CurvedText from './CurvedText'
+import SocialLinks from './SocialLinks'
 
 const Contact: FC = () => {
   const { isDarkMode } = useTheme()
@@ -19,6 +20,7 @@ const Contact: FC = () => {
         <div className={styles.rainbowText}>
           <CurvedText />
         </div>
+        <SocialLinks />
       </div>
     </section>
   )
