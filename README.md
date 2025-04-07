@@ -1,50 +1,131 @@
-# React + TypeScript + Vite
+# Lior Doron's Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my portfolio website repository! This site showcases my work as a Full Stack Developer, featuring interactive UI elements, smooth animations, and a collection of my projects.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Visit the live site](https://your-domain.com)
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- 🎨 Modern, responsive design
+- 🌈 Interactive rainbow animations
+- 🐸 Playful UI elements
+- 🌗 Dark/Light mode toggle
+- 📱 Mobile-friendly layout
+- 🎭 Smooth transitions and animations
+- 🔗 Social media integration
 
-- Configure the top-level `parserOptions` property like this:
+## 🛠️ Built With
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **Frontend Framework:** React 18
+- **Type Safety:** TypeScript
+- **Styling:** SCSS Modules
+- **Build Tool:** Vite
+- **3D Graphics:** Three.js with React Three Fiber
+- **Animations:**
+  - Framer Motion
+  - React Spring
+  - React Type Animation
+- **Icons:** Font Awesome, React Icons
+- **Routing:** React Router DOM
+
+## 🏗️ Project Structure
+
+```
+portfolio/
+├── src/
+│   ├── assets/         # Images, fonts, and other static files
+│   ├── components/     # React components
+│   ├── context/        # React context providers
+│   ├── styles/         # SCSS modules and global styles
+│   └── main.tsx        # Application entry point
+├── public/             # Public assets
+└── index.html          # HTML entry point
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 🚀 Getting Started
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Prerequisites
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+- Node.js (v18 or higher recommended)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+
+   ```bash
+   git clone https://github.com/lior88844/portfolio.git
+   ```
+
+2. Navigate to the project directory
+
+   ```bash
+   cd portfolio
+   ```
+
+3. Install dependencies
+
+   ```bash
+   npm install
+   ```
+
+4. Start the development server
+
+   ```bash
+   npm run dev
+   ```
+
+5. Build for production
+   ```bash
+   npm run build
+   ```
+
+## 🎨 Customization
+
+- **Theme:** Modify colors and variables in `src/styles/_variables.scss`
+- **Content:** Update text and images in respective components
+- **Animations:** Adjust timing and effects in component files
+
+## 📱 Responsive Design
+
+The portfolio is fully responsive and optimized for:
+
+- Desktop (1200px+)
+- Tablet (768px - 1199px)
+- Mobile (320px - 767px)
+
+## 🔧 Development
+
+```bash
+# Start development server
+npm run dev
+
+# Type checking
+npm run type-check
+
+# Linting
+npm run lint
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
+
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 📫 Contact
+
+- GitHub: [@lior88844](https://github.com/lior88844)
+- LinkedIn: [Lior Doron](https://www.linkedin.com/in/lior-doron-2547b514b/)
+- Email: dearliordoron@gmail.com
+- Instagram: [@dearliordoron](https://www.instagram.com/dearliordoron/)
+
+---
+
+Made with ❤️ by Lior Doron
