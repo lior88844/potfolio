@@ -1,4 +1,4 @@
-import { FC, useRef, useEffect, useCallback, useState } from 'react'
+import { FC, useRef, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { IconType } from 'react-icons'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
@@ -20,16 +20,14 @@ interface TimelineProps {
 }
 
 const Timeline: FC<TimelineProps> = ({ data }) => {
-  const [selectedYear, setSelectedYear] = useState<number>(2024)
-  const timelineRef = useRef<HTMLDivElement>(null)
-  const { isDarkMode } = useTheme()
-  const years = Object.keys(data).sort((a, b) => parseInt(a) - parseInt(b))
   const containerRef = useRef<HTMLDivElement>(null)
   const autoScrollEnabled = useRef(true)
   const isDragging = useRef(false)
   const startX = useRef(0)
   const scrollLeft = useRef(0)
   const scrollSpeed = 1 // Pixels per frame
+  const { isDarkMode } = useTheme()
+  const years = Object.keys(data).sort((a, b) => parseInt(a) - parseInt(b))
 
   const scroll = useCallback((direction: 'left' | 'right') => {
     if (!containerRef.current) return
@@ -215,10 +213,6 @@ const Timeline: FC<TimelineProps> = ({ data }) => {
         </div>
       </motion.div>
     ))
-  }
-
-  const handleYearClick = (year: number) => {
-    setSelectedYear(year)
   }
 
   return (

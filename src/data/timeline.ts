@@ -3,7 +3,6 @@ import {
   FaGraduationCap,
   FaBriefcase,
   FaLaptopCode,
-  FaUserGraduate,
 } from 'react-icons/fa'
 
 export const timelineData = {

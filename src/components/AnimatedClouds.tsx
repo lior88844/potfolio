@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { motion } from 'motion/react'
+import { motion } from 'framer-motion'
 import styles from '../styles/AnimatedClouds.module.scss'
 import cloud1 from '../assets/img/clouds/cloud-1.png'
 import cloud2 from '../assets/img/clouds/cloud-2.png'
