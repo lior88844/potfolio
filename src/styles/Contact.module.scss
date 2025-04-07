@@ -35,7 +35,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  height: 100vh;
+  height: 80vh;
   z-index: 2;
   pointer-events: none;
   margin-top: auto;
@@ -51,16 +51,15 @@
   object-fit: contain;
   padding-top: 40px;
   pointer-events: none;
-  margin-bottom: 5vh;
 }
 
 .rainbowContainer {
   position: absolute;
-  bottom: -30vh;
+  bottom: -24vh;
   left: 50%;
   transform: translateX(-50%);
   width: 200vh;
-  height: 100vh;
+  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -90,7 +89,7 @@
 
 .rainbowText {
   position: absolute;
-  bottom: 75vh;
+  bottom: 60vh;
   left: 50%;
   transform: translateX(-50%);
   width: 600px;

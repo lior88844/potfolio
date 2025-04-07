@@ -3,7 +3,6 @@ import { motion } from 'framer-motion'
 import { IconType } from 'react-icons'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import styles from '../styles/Timeline.module.scss'
-import { useTheme } from '../context/ThemeContext'
 
 interface TimelineItem {
   title: string
@@ -25,8 +24,7 @@ const Timeline: FC<TimelineProps> = ({ data }) => {
   const isDragging = useRef(false)
   const startX = useRef(0)
   const scrollLeft = useRef(0)
-  const scrollSpeed = 1 // Pixels per frame
-  const { isDarkMode } = useTheme()
+  const scrollSpeed = 1
   const years = Object.keys(data).sort((a, b) => parseInt(a) - parseInt(b))
 
   const scroll = useCallback((direction: 'left' | 'right') => {
