@@ -236,7 +236,6 @@ const Timeline: FC<TimelineProps> = ({ data }) => {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <div className={styles.timelineLine} />
         {renderTimelineItems()}
         {renderTimelineItems()} {/* Duplicate timeline items for infinite scroll */}
       </motion.div>

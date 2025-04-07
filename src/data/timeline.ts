@@ -33,7 +33,7 @@ export const timelineData = {
   ],
   "2021": [
     {
-      "title": "Academic Career Start",
+      "title": "Working while studying",
       "description": "Combined roles as a statistics tutor and social media manager at Tel-Hai's Global Partnerships department, developing educational content.",
       "icon": FaChalkboardTeacher
     }
@@ -47,7 +47,7 @@ export const timelineData = {
   ],
  "2023-1": [
     {
-      "title": "Full Stack Development",
+      "title": "Taking programming seriously",
       "description": "Enhanced technical skills through Coding Academy Israel's fullstack bootcamp, mastering React, MongoDB, and modern JavaScript.",
       "icon": FaCode
     }

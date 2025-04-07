@@ -1,18 +1,25 @@
 // Variables
 @import '../styles/_variables.scss';
+
 .nav {
   cursor: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  z-index: 1;
+  z-index: 10;
   position: relative;
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: 1rem;
+    cursor: auto;
+  }
 }
 
 .logo {
   height: 100%;
 }
+
 .logoImg {
   height: 30%;
 }
@@ -22,6 +29,11 @@
   list-style: none;
   gap: 2rem;
   align-items: center;
+
+  @media (max-width: $breakpoint-mobile) {
+    display: none;
+  }
+
   .navLink {
     background: transparent;
     border: none;
@@ -43,17 +55,18 @@
       font-weight: 500;
       transition: color 0.3s ease;
       margin: 0;
+      font-size: 1.25rem;
+
+      @media (max-width: $breakpoint-mobile) {
+        font-size: 1rem;
+      }
     }
 
     .subLabel {
-      font-size: 0.7rem;
+      font-size: 0.875rem;
       color: $primary-color-5;
       text-transform: lowercase;
       transition: color 0.3s ease;
-    }
-
-    @media (max-width: $breakpoint-mobile) {
-      display: none;
     }
 
     &:hover {
@@ -67,33 +80,115 @@
 }
 
 .toggleSwitch {
-  width: 60px;
-  height: 28px;
+  width: 3.75rem;
+  height: 1.75rem;
   background-color: rgba(255, 255, 255, 0.4);
   display: flex;
   justify-content: flex-start;
-  border-radius: 50px;
-  padding: 2px;
+  border-radius: 3.125rem;
+  padding: 0.125rem;
   cursor: pointer;
-  margin-left: 10px;
+  margin-left: 0.625rem;
 
   .handle {
-    width: 24px;
-    height: 24px;
+    width: 1.5rem;
+    height: 1.5rem;
     background-color: white;
-    border-radius: 40px;
+    border-radius: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
 
     .icon {
       color: $hover-color;
-      font-size: 14px;
+      font-size: 0.875rem;
     }
   }
 }
+
 .logoContainer {
   display: flex;
   align-items: center;
   gap: 2rem;
+
+  @media (max-width: $breakpoint-mobile) {
+    gap: 1rem;
+  }
+}
+
+// Mobile Menu Styles
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: $primary-color;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 11;
+
+  @media (max-width: $breakpoint-mobile) {
+    display: block;
+  }
+}
+
+.mobileMenu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 9;
+  padding: 5rem 1.5rem;
+
+  @media (max-width: $breakpoint-mobile) {
+    display: block;
+  }
+}
+
+.mobileNavLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+
+  li {
+    width: 100%;
+    text-align: center;
+
+    button {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1rem;
+      cursor: pointer;
+      color: $primary-color;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+
+      h1 {
+        font-size: 1.5rem;
+        margin: 0;
+        color: $primary-color;
+      }
+
+      span {
+        font-size: 0.875rem;
+        color: $primary-color-5;
+      }
+
+      &:hover {
+        h1,
+        span {
+          color: $hover-color;
+        }
+      }
+    }
+  }
 }

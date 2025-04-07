@@ -9,7 +9,6 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
-import Footer from './components/Footer'
 import PageTransition from './components/PageTransition'
 import { useTheme } from './context/ThemeContext'
 import styles from './styles/App.module.scss'
@@ -121,7 +120,6 @@ const AppContent: FC = () => {
           </Routes>
         </AnimatePresence>
       </main>
-      <Footer />
     </div>
   )
 }

@@ -1,15 +1,25 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import styles from '../styles/Navbar.module.scss'
 import logoDay from '../assets/img/logo.png'
 import logoNight from '../assets/img/logo-night.png'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useTheme } from '../context/ThemeContext'
-import { FaSun, FaMoon } from 'react-icons/fa'
+import { FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa'
 
 const Navbar: FC = () => {
   const navigate = useNavigate()
   const { isDarkMode, toggleTheme } = useTheme()
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+  }
+
+  const handleNavigation = (path: string) => {
+    navigate(path)
+    setIsMenuOpen(false)
+  }
 
   return (
     <header>
@@ -36,19 +46,26 @@ const Navbar: FC = () => {
             </motion.div>
           </div>
           <img
-            style={{ height: '60px' }}
+            style={{ height: '3.75rem' }}
             src={isDarkMode ? logoNight : logoDay}
             alt="Logo"
-            onClick={() => navigate('/')}
+            onClick={() => handleNavigation('/')}
           />
         </div>
+
+        {/* Hamburger Menu Button */}
+        <button className={styles.hamburger} onClick={toggleMenu}>
+          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+
+        {/* Desktop Navigation */}
         <ul className={styles.navLinks}>
           <li>
             <motion.button
               whileTap={{ scale: 0.9, rotate: 3 }}
               whileHover={{ scale: 1.2 }}
               className={styles.navLink}
-              onClick={() => navigate('/about')}
+              onClick={() => handleNavigation('/about')}
             >
               <div className={styles.navLinkContent}>
                 <motion.h1>The Summit</motion.h1>
@@ -61,7 +78,7 @@ const Navbar: FC = () => {
               whileTap={{ scale: 0.9, rotate: 3 }}
               whileHover={{ scale: 1.2 }}
               className={styles.navLink}
-              onClick={() => navigate('/projects')}
+              onClick={() => handleNavigation('/projects')}
             >
               <div className={styles.navLinkContent}>
                 <motion.h1>The Meadow</motion.h1>
@@ -74,7 +91,7 @@ const Navbar: FC = () => {
               whileTap={{ scale: 0.9, rotate: 3 }}
               whileHover={{ scale: 1.2 }}
               className={styles.navLink}
-              onClick={() => navigate('/contact')}
+              onClick={() => handleNavigation('/contact')}
             >
               <div className={styles.navLinkContent}>
                 <motion.h1>The Swamp</motion.h1>
@@ -83,6 +100,40 @@ const Navbar: FC = () => {
             </motion.button>
           </li>
         </ul>
+
+        {/* Mobile Navigation */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              className={styles.mobileMenu}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.2 }}
+            >
+              <ul className={styles.mobileNavLinks}>
+                <li>
+                  <button onClick={() => handleNavigation('/about')}>
+                    <h1>The Summit</h1>
+                    <span>my path</span>
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => handleNavigation('/projects')}>
+                    <h1>The Meadow</h1>
+                    <span>my projects</span>
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => handleNavigation('/contact')}>
+                    <h1>The Swamp</h1>
+                    <span>contact me</span>
+                  </button>
+                </li>
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     </header>
   )

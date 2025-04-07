@@ -6,9 +6,25 @@ import styles from '../styles/LightCursor.module.scss'
 const LightCursor: FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isHovering, setIsHovering] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
   const { isDarkMode } = useTheme()
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+
+    return () => {
+      window.removeEventListener('resize', checkMobile)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (isMobile) return
+
     const updateMousePosition = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY })
     }
@@ -18,8 +34,8 @@ const LightCursor: FC = () => {
       const isClickable =
         target.tagName === 'BUTTON' ||
         target.tagName === 'A' ||
-        target.closest('button') ||
-        target.closest('a') ||
+        target.closest('button') !== null ||
+        target.closest('a') !== null ||
         target.style.cursor === 'pointer' ||
         window.getComputedStyle(target).cursor === 'pointer'
 
@@ -33,7 +49,9 @@ const LightCursor: FC = () => {
       window.removeEventListener('mousemove', updateMousePosition)
       window.removeEventListener('mouseover', handleMouseOver)
     }
-  }, [])
+  }, [isMobile])
+
+  if (isMobile) return null
 
   return (
     <motion.div
